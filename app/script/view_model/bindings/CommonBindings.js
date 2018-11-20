@@ -19,6 +19,8 @@
 
 'use strict';
 
+import SimpleBar from 'simplebar';
+
 /**
  * Use it on the drop area.
  */
@@ -404,7 +406,7 @@ ko.bindingHandlers.antiscroll = {
 ko.bindingHandlers.simplebar = {
   init(element, valueAccessor) {
     const {trigger = valueAccessor(), onInit} = valueAccessor();
-    const simpleBar = new window.SimpleBar(element, {autoHide: false});
+    const simpleBar = new SimpleBar(element, {autoHide: false});
     if (ko.isObservable(trigger)) {
       const triggerSubscription = trigger.subscribe(() => simpleBar.recalculate());
       ko.utils.domNodeDisposal.addDisposeCallback(element, () => triggerSubscription.dispose());
